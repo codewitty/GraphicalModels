@@ -29,7 +29,7 @@ Elite monster which gives stats bonus when killed by the player. It helps to pus
 ### Resources
   We used Pyro SVI and modules such as numpy, pandas, and matplotlib to visualize and analyze our dataset and the results quantitatively. The model was trained on a local Jupyter notebook.
 The code that we wrote defines a model and a guide for SVI. The model takes in all of the variables that are used to evaluate the game outcome. Each feature was also normalized for comparison. The guide has parameters that define weights for each variable, which define the importance of the corresponding feature. Some of the variables are also expected to have an optimal value, which is another parameter in the guide. Those that do not will have their optimal values set to zero, since negative optimal values do not make sense.
-We adapted the player skill model for game outcomes from Homework 5, but used Pyro’s SVI engine from Homework 6 to learn the model.
+
 
 ### Evaluation
 For each team in each game, we calculate a “score” per team, which is the sum of subscores for each individual variable. The variable’s subscore is the square of the difference between the true value and the optimal value. For variables without an optimal value, the zero optimal simplifies the formula to the variable’s weight multiplied by its squared value. The team that has the higher score is predicted to win the match.
