@@ -37,17 +37,19 @@ Below are 4 models of various feature combinations to demonstrate feature import
 
 #### Model 1
 This model contains every feature in the dataset. Figure 1.1 shows the weights and optimals, while the 0.73 accuracy in Figure 1.2 serves as a comparison to other models. The dense distribution in Figure 1.1 shows a blend of influential and insignificant features. Interestingly, there are also features with negative weights and/or optimals.
-
+![alt text](https://github.com/codewitty/GraphicalModels/blob/main/Model1.png?raw=true)
 
 #### Model 2
 This simplified model contains 3 features chosen randomly: WardsPlaced, TotalGold, and ExperienceDiff. Total gold was overwhelmingly significant due to its large weight. Its optimal ratio also went into the negative, thus increasing the square difference between the optimal value and the true value — further emphasizing the feature’s importance. However, the accuracy suffers a bit due to the model’s simplicity.
+![alt text](https://github.com/codewitty/GraphicalModels/blob/main/Model2.png?raw=true)
 
 #### Model 3
 This model adds two features to Model 2: EliteMonsters and TotalJungleMinionsKilled. The accuracy in this model is very close to Model 1. Most of these features are a good predictor of the game outcome, and a lot of the less impactful features that were included in Model 1 are missing here, which makes for a more stable model that is more accurate than Model 2.
-
+![alt text](https://github.com/codewitty/GraphicalModels/blob/main/Model3.png?raw=true)
 
 #### Model 4
 This model disables the optimal value parameters for most of the features, meaning that those optimals are set to 0. Forcing the optimal to 0 greatly affected ExperienceDiff, pushing its predicted importance above that of TotalGold’s. This greatly destabilized model, with more random-looking spikes in the accuracy chart. Interestingly, the model starts off a lot more accurate, compared to other models. However, the accuracy goes down significantly near the end, similar to Model 1.
+![alt text](https://github.com/codewitty/GraphicalModels/blob/main/Model4.png?raw=true)
 
 ### Conclusion
   The combination of importance sampling and SVI was generally effective at modeling the features that affected the game outcome. For League of Legends, in particular, we determined that TotalGold and ExperienceDiff were among the most critical factors in determining the outcome of the matches in this dataset. According to Model 1, the complete ordering, from highest importance to lowest, is GoldPerMin, GoldDiff, TotalExperience, TotalGold, ExperienceDiff, AvgLevel, CSPerMin, Dragons, Kills, EliteMonsters, TotalMinionsKilled, WardsPlaced, TowersDestroyed, TotalJungleMinionsKilled, FirstBlood, Assists, Heralds, WardsDestroyed, and Deaths.
